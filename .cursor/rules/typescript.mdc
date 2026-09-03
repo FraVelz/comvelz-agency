@@ -1,0 +1,10 @@
+---
+description: TypeScript strictness
+alwaysApply: true
+---
+
+# TypeScript
+
+- `strict` mode. No `any`.
+- Prefer `interface` for shared object shapes.
+- Explicit return types on exported functions.

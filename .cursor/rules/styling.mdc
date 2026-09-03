@@ -1,0 +1,11 @@
+---
+description: Tailwind and cn() usage
+alwaysApply: true
+---
+
+# Styling
+
+- Use Tailwind CSS tokens from `src/app/globals.css`.
+- Use `cn()` from `src/lib/cn.ts` for conditional classes.
+- Never inline repeated class strings; extract `Button`, `Card`, `Container`.
+- Use semantic spacing. Do not invent a second color palette.

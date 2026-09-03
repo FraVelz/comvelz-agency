@@ -1,0 +1,14 @@
+---
+description: Feature-first architecture and file size limits
+alwaysApply: true
+---
+
+# Architecture
+
+- Prefer composition and Server Components.
+- No business logic in presentational components.
+- Copy and URLs live in `src/content/site.ts`.
+- Page files stay under 100 lines.
+- UI components stay under 200 lines.
+- Avoid nesting JSX more than 3 levels; extract components.
+- One responsibility per file.

@@ -1,0 +1,29 @@
+---
+description: Git commits by the agent — no AI co-author trailers
+alwaysApply: true
+---
+
+# Git commits
+
+When creating or amending commits on behalf of the user:
+
+- **Never** add `Co-authored-by:`, `Signed-off-by:` for Cursor, or any AI/IDE co-author line unless the user explicitly asks for it.
+- The commit message must contain only Conventional Commits subject/body in English.
+- **Always** commit with a message file, not inline `-m`:
+
+  ```bash
+  git commit -F /tmp/commit-msg.txt
+  ```
+
+- **Always** verify immediately after commit:
+
+  ```bash
+  git log -1 --format=%B
+  ```
+
+  If the output contains `Co-authored-by: Cursor` (or any Cursor/AI trailer), fix **before** `git push`.
+  If `git commit --amend -F` still re-injects the trailer, rewrite the message file without that line, then amend.
+  If amend still re-injects, rewrite with `git filter-branch --msg-filter 'grep -v "^Co-authored-by: Cursor"'`.
+
+- Never update git config. Never skip hooks unless the user asks.
+- Never push a commit that still shows a Cursor co-author trailer.
