@@ -1,12 +1,12 @@
 import type { LucideIcon } from "lucide-react";
 import {
   BarChart3,
+  Bot,
   CircleCheck,
   Code2,
   Cpu,
   Paintbrush,
   Rocket,
-  Smartphone,
   Smile,
   Sparkles,
   Target,
@@ -62,7 +62,7 @@ export const site: SiteContent = {
   shortName: "COMVELZ",
   email: "Comvelz@outlook.com",
   description:
-    "Agencia digital que crea sitios web, apps y experiencias de producto para impulsar negocios.",
+    "Agencia digital que crea sitios web, agentes de IA y experiencias de producto para impulsar negocios.",
   nav: [
     { id: "inicio", href: "#inicio", label: "Inicio" },
     { id: "servicios", href: "#servicios", label: "Servicios" },
@@ -100,10 +100,10 @@ export const site: SiteContent = {
       icon: Code2,
     },
     {
-      title: "Desarrollo Mobile",
+      title: "Agentes de IA",
       description:
-        "Apps nativas o híbridas con una experiencia clara, estable y fácil de usar.",
-      icon: Smartphone,
+        "Agentes y automatizaciones que atienden, resuelven y escalan procesos de tu negocio.",
+      icon: Bot,
     },
     {
       title: "Diseño UI/UX",
@@ -133,7 +133,7 @@ export const site: SiteContent = {
     },
     {
       title: "App de Productividad",
-      category: "Desarrollo Mobile",
+      category: "Agentes de IA",
       image: "/images/projects/app-productividad.webp",
       alt: "Dos móviles mostrando una app de tareas y productividad",
     },

@@ -30,7 +30,7 @@ export function Hero(): React.ReactElement {
             impulsan tu negocio.
           </h1>
           <p className="text-muted mt-5 max-w-lg text-base leading-7">
-            Diseñamos y construimos productos web y mobile con foco en
+            Diseñamos y construimos productos web y agentes de IA con foco en
             resultados: experiencia clara, tecnología sólida y una marca que se
             siente profesional.
           </p>
