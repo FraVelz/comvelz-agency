@@ -1,0 +1,23 @@
+---
+description: No inventar portafolio en Proyectos; cómo restaurar la grilla cuando haya casos reales
+alwaysApply: true
+---
+
+# Proyectos: sin portafolio de relleno
+
+No inventar clientes, casos ni capturas. Hasta que el usuario publique trabajos reales (con permiso), `site.projects` queda **vacío** y la sección muestra **tres cards placeholder** (skeleton de navegador + «Próximamente»), no casos fingidos.
+
+Copy filled/empty en `src/content/site.ts`. UI en `src/components/sections/projects.tsx`.
+
+## Restaurar cuando haya proyectos reales
+
+1. Pedir casos reales. No rellenar huecos ni reutilizar la plantilla de abajo.
+2. Añadir items en `site.projects` (`title`, `category`, `image`, `alt`).
+3. Layout filled: `ul` 3 columnas, imagen `aspect-[16/10]`, título + categoría.
+4. No hardcodear copy ni casos en el componente.
+
+## Plantilla original (NO era real — no reutilizar estos títulos)
+
+- Plataforma Educativa / Desarrollo Web
+- App de Productividad / Agentes de IA
+- Tienda Online / Desarrollo Web

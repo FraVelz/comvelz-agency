@@ -27,7 +27,7 @@ export function ContactCta(): React.ReactElement {
                 ¿Tienes un proyecto en mente?
               </h2>
               <Button href={mailto} variant="olive" className="mt-5">
-                Hablemos de tu proyecto
+                Háblanos para tu proyecto
               </Button>
             </div>
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-12">

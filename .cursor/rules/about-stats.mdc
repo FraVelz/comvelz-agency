@@ -1,0 +1,24 @@
+---
+description: No inventar métricas en Sobre Nosotros; cómo restaurar la grilla numérica cuando haya datos reales
+alwaysApply: true
+---
+
+# Sobre Nosotros: sin vanity metrics
+
+No inventar clientes, proyectos, años de experiencia ni % de satisfacción.
+
+Hasta que el usuario dé cifras que pueda defender, `site.stats` son **pilares cualitativos**. Misma grilla 2×2 en `src/components/sections/about.tsx`. Copy en `src/content/site.ts`.
+
+## Restaurar cuando haya datos reales
+
+1. Pedir números reales. No rellenar huecos ni reutilizar la plantilla de abajo.
+2. Volver a valores cortos tipo `10+` / `2+ Años` en `StatItem` (`label`, `value`, `icon`).
+3. Layout: `ul` 2 columnas, icono Lucide, label uppercase, value `text-3xl`.
+4. No hardcodear cifras en el componente.
+
+## Plantilla original (NO era real — no reutilizar estas cifras)
+
+- Clientes / `10+` / `Users`
+- Proyectos / `20+` / `Rocket`
+- Experiencia / `2+ Años` / `CircleCheck`
+- Satisfacción / `100%` / `Smile`

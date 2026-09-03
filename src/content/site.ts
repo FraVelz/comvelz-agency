@@ -2,12 +2,9 @@ import type { LucideIcon } from "lucide-react";
 import {
   BarChart3,
   Bot,
-  CircleCheck,
   Code2,
   Cpu,
   Paintbrush,
-  Rocket,
-  Smile,
   Sparkles,
   Target,
   Users,
@@ -44,6 +41,26 @@ export interface ProjectItem {
   alt: string;
 }
 
+export interface ProjectsFilledCopy {
+  heading: string;
+  cta: string;
+}
+
+export type ProjectPlaceholderVariant = "landing" | "dashboard" | "shop";
+
+export interface ProjectPlaceholder {
+  id: string;
+  title: string;
+  category: string;
+  variant: ProjectPlaceholderVariant;
+}
+
+export interface ProjectsEmptyCopy {
+  heading: string;
+  cta: string;
+  placeholders: ProjectPlaceholder[];
+}
+
 export interface SiteContent {
   name: string;
   shortName: string;
@@ -53,6 +70,10 @@ export interface SiteContent {
   socials: SocialLink[];
   services: ServiceItem[];
   stats: StatItem[];
+  projectsEyebrow: string;
+  projectsCtaHref: string;
+  projectsFilled: ProjectsFilledCopy;
+  projectsEmpty: ProjectsEmptyCopy;
   projects: ProjectItem[];
   heroPills: { label: string; icon: LucideIcon }[];
 }
@@ -118,30 +139,45 @@ export const site: SiteContent = {
       icon: BarChart3,
     },
   ],
+  // Pilares cualitativos, no métricas. Restaurar números solo con datos reales:
+  // .cursor/rules/about-stats.mdc
   stats: [
-    { label: "Clientes", value: "10+", icon: Users },
-    { label: "Proyectos", value: "20+", icon: Rocket },
-    { label: "Experiencia", value: "2+ Años", icon: CircleCheck },
-    { label: "Satisfacción", value: "100%", icon: Smile },
+    { label: "Equipo", value: "Cercano", icon: Users },
+    { label: "Producto", value: "A medida", icon: Code2 },
+    { label: "IA", value: "Agentes", icon: Bot },
+    { label: "Foco", value: "Impacto", icon: Target },
   ],
-  projects: [
-    {
-      title: "Plataforma Educativa",
-      category: "Desarrollo Web",
-      image: "/images/projects/plataforma-educativa.webp",
-      alt: "Dashboard oscuro de una plataforma educativa con cursos y métricas",
-    },
-    {
-      title: "App de Productividad",
-      category: "Agentes de IA",
-      image: "/images/projects/app-productividad.webp",
-      alt: "Dos móviles mostrando una app de tareas y productividad",
-    },
-    {
-      title: "Tienda Online",
-      category: "Desarrollo Web",
-      image: "/images/projects/tienda-online.webp",
-      alt: "Tienda en línea de moda con catálogo de productos",
-    },
-  ],
+  projectsEyebrow: "PROYECTOS",
+  projectsCtaHref: "#contacto",
+  projectsFilled: {
+    heading: "Algunos de nuestros trabajos recientes",
+    cta: "Ver todos los proyectos",
+  },
+  projectsEmpty: {
+    heading: "Trabajos que podemos mostrar",
+    cta: "Cuéntanos tu proyecto",
+    placeholders: [
+      {
+        id: "slot-landing",
+        title: "Próximamente",
+        category: "En preparación",
+        variant: "landing",
+      },
+      {
+        id: "slot-dashboard",
+        title: "Próximamente",
+        category: "En preparación",
+        variant: "dashboard",
+      },
+      {
+        id: "slot-shop",
+        title: "Próximamente",
+        category: "En preparación",
+        variant: "shop",
+      },
+    ],
+  },
+  // Vacío a propósito. Restaurar solo con proyectos reales:
+  // .cursor/rules/projects-empty.mdc
+  projects: [],
 };
