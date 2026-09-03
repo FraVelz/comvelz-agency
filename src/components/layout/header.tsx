@@ -49,7 +49,7 @@ export function Header(): React.ReactElement {
         <Logo className="relative z-10" />
         <nav
           aria-label="Principal"
-          className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex"
+          className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 lg:flex"
         >
           {site.nav.map((item) => (
             <a

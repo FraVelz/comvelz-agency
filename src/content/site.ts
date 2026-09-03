@@ -41,6 +41,33 @@ export interface ProjectItem {
   alt: string;
 }
 
+export interface PlanItem {
+  id: string;
+  name: string;
+  description: string;
+  examples: string[];
+  priceUsd: number;
+  maintenanceUsd: number;
+  featured: boolean;
+  advantages: string[];
+  technical: string[];
+  maintenanceIncludes: string[];
+  ctaLabel: string;
+}
+
+export interface PlansSectionCopy {
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  disclaimer: string;
+  examplesLabel: string;
+  advantagesLabel: string;
+  technicalLabel: string;
+  maintenanceLabel: string;
+  maintenanceOptionalLabel: string;
+  featuredBadge: string;
+}
+
 export interface ProjectsFilledCopy {
   heading: string;
   cta: string;
@@ -75,6 +102,8 @@ export interface SiteContent {
   projectsFilled: ProjectsFilledCopy;
   projectsEmpty: ProjectsEmptyCopy;
   projects: ProjectItem[];
+  plansSection: PlansSectionCopy;
+  plans: PlanItem[];
   heroPills: { label: string; icon: LucideIcon }[];
 }
 
@@ -87,6 +116,7 @@ export const site: SiteContent = {
   nav: [
     { id: "inicio", href: "#inicio", label: "Inicio" },
     { id: "servicios", href: "#servicios", label: "Servicios" },
+    { id: "planes", href: "#planes", label: "Planes" },
     { id: "sobre-nosotros", href: "#sobre-nosotros", label: "Sobre Nosotros" },
     { id: "proyectos", href: "#proyectos", label: "Proyectos" },
     { id: "contacto", href: "#contacto", label: "Contacto" },
@@ -180,4 +210,132 @@ export const site: SiteContent = {
   // Vacío a propósito. Restaurar solo con proyectos reales:
   // .cursor/rules/projects-empty.mdc
   projects: [],
+  plansSection: {
+    eyebrow: "PLANES",
+    heading: "Planes web en USD",
+    intro:
+      "El sitio es un pago único. El mantenimiento es mensual y opcional: hosting, copias de seguridad, parches y cambios menores.",
+    disclaimer:
+      "Precios desde, en USD. El alcance y el mantenimiento se confirman por correo.",
+    examplesLabel: "Ideal para",
+    advantagesLabel: "Ventajas",
+    technicalLabel: "Incluye (técnico)",
+    maintenanceLabel: "Mantenimiento mensual",
+    maintenanceOptionalLabel: "Mantenimiento opcional",
+    featuredBadge: "Recomendado",
+  },
+  plans: [
+    {
+      id: "landing",
+      name: "Landing",
+      description:
+        "Una sola página para que te encuentren, entiendan qué ofreces y te escriban.",
+      examples: [
+        "Restaurante o café",
+        "Consultorio",
+        "Evento o conferencia",
+        "Campaña de lanzamiento",
+        "Freelancer o portafolio",
+      ],
+      priceUsd: 400,
+      maintenanceUsd: 29,
+      featured: false,
+      advantages: [
+        "Inversión inicial más baja",
+        "Un solo mensaje y un solo CTA",
+        "Se publica sin armar un sitio grande",
+        "Mantenimiento liviano",
+      ],
+      technical: [
+        "1 página responsive",
+        "Formulario o botón a WhatsApp",
+        "SEO básico (title, meta, sitemap)",
+        "Analítica",
+        "Listo para publicar",
+      ],
+      maintenanceIncludes: [
+        "Hosting y SSL",
+        "Copias de seguridad",
+        "Parches de seguridad",
+        "Hasta 1 cambio menor de texto o imagen al mes",
+        "Soporte por correo",
+      ],
+      ctaLabel: "Solicitar este plan",
+    },
+    {
+      id: "corporativo",
+      name: "Sitio corporativo",
+      description:
+        "Sitio de varias páginas para presentar la marca, los servicios y cómo contactarte.",
+      examples: [
+        "Clínica o centro de salud",
+        "Despacho o estudio",
+        "Constructora o inmobiliaria",
+        "Academia o centro de formación",
+        "PYME de varios servicios",
+      ],
+      priceUsd: 1200,
+      maintenanceUsd: 59,
+      featured: true,
+      advantages: [
+        "Más confianza de marca",
+        "Varios servicios en un solo sitio",
+        "Mejor base para SEO",
+        "Se puede ampliar después (blog o landing extra)",
+      ],
+      technical: [
+        "Hasta 6 páginas/secciones",
+        "Menú y estructura de contenidos",
+        "SEO on-page por página",
+        "Analítica",
+        "Integración WhatsApp o correo",
+      ],
+      maintenanceIncludes: [
+        "Hosting y SSL",
+        "Copias de seguridad",
+        "Parches",
+        "Hasta 2 cambios menores al mes",
+        "Soporte por correo",
+        "Revisión de formularios y analítica",
+      ],
+      ctaLabel: "Solicitar este plan",
+    },
+    {
+      id: "ecommerce",
+      name: "E-commerce / a medida",
+      description:
+        "Tienda o plataforma para vender en línea, con catálogo, pagos y pedidos.",
+      examples: [
+        "Tienda de moda o accesorios",
+        "Alimentos o gourmet",
+        "Ferretería o catálogo B2B",
+        "Marca que ya vende en redes y quiere checkout propio",
+      ],
+      priceUsd: 2500,
+      maintenanceUsd: 99,
+      featured: false,
+      advantages: [
+        "Ventas sin depender solo de redes",
+        "Pagos y pedidos en un flujo",
+        "El catálogo puede crecer",
+        "El mantenimiento cubre lo crítico de la tienda",
+      ],
+      technical: [
+        "Catálogo, carrito y checkout",
+        "Pagos en línea",
+        "Fichas de producto (fotos, precio, stock)",
+        "Gestión de pedidos",
+        "Alcance cerrado en la propuesta (el $2,500 es un piso)",
+      ],
+      maintenanceIncludes: [
+        "Hosting y SSL",
+        "Copias de seguridad",
+        "Parches y actualizaciones de tienda/pagos",
+        "Hasta 3 cambios menores al mes",
+        "Soporte por correo",
+        "Revisión de checkout",
+      ],
+      ctaLabel: "Solicitar este plan",
+    },
+  ],
 };

@@ -1,6 +1,6 @@
 # Copy homepage
 
-Landing one-page. Anclas: `#inicio` `#servicios` `#sobre-nosotros` `#proyectos` `#contacto`.
+Landing one-page. Anclas: `#inicio` `#servicios` `#planes` `#sobre-nosotros` `#proyectos` `#contacto`.
 
 Fuente de verdad en código: `src/content/site.ts`.
 
