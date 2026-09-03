@@ -1,8 +1,9 @@
-import { CircleCheck, Code2, Wrench } from "lucide-react";
+import { CircleCheck } from "lucide-react";
 import { site, type PlanItem } from "@/content/site";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { PlanBulletList } from "@/components/sections/plan-bullet-list";
+import { PlanDetailsDialog } from "@/components/sections/plan-details-dialog";
 import { cn } from "@/lib/cn";
 import { formatUsdFrom, formatUsdPerMonth } from "@/lib/format-usd";
 import { planMailto } from "@/lib/plan-mailto";
@@ -32,19 +33,7 @@ export function PlanCard({ plan }: PlanCardProps): React.ReactElement {
         items={plan.advantages}
         icon={CircleCheck}
       />
-      <PlanBulletList
-        title={copy.technicalLabel}
-        items={plan.technical}
-        icon={Code2}
-      />
-      <PlanMaintenance plan={plan} />
-      <Button
-        href={planMailto(site.email, plan)}
-        variant={plan.featured ? "olive" : "outline"}
-        className="mt-auto w-full"
-      >
-        {plan.ctaLabel}
-      </Button>
+      <PlanCardActions plan={plan} />
     </Card>
   );
 }
@@ -111,16 +100,17 @@ function PlanPrices({
   );
 }
 
-function PlanMaintenance({ plan }: PlanCardProps): React.ReactElement {
+function PlanCardActions({ plan }: PlanCardProps): React.ReactElement {
   return (
-    <div className="bg-cream rounded-xl p-4">
-      <p className="text-charcoal text-sm font-semibold">
-        {site.plansSection.maintenanceLabel}{" "}
-        <span className="text-muted font-normal">
-          {formatUsdPerMonth(plan.maintenanceUsd)}
-        </span>
-      </p>
-      <PlanBulletList items={plan.maintenanceIncludes} icon={Wrench} />
+    <div className="mt-auto flex flex-col gap-2">
+      <PlanDetailsDialog plan={plan} />
+      <Button
+        href={planMailto(site.email, plan)}
+        variant={plan.featured ? "olive" : "outline"}
+        className="w-full"
+      >
+        {plan.ctaLabel}
+      </Button>
     </div>
   );
 }

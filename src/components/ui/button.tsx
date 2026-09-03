@@ -11,6 +11,16 @@ const variants = {
 
 export type ButtonVariant = keyof typeof variants;
 
+const buttonBaseClass =
+  "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium transition-colors";
+
+export function buttonClassName(
+  variant: ButtonVariant = "olive",
+  className?: string,
+): string {
+  return cn(buttonBaseClass, variants[variant], className);
+}
+
 interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   variant?: ButtonVariant;
@@ -30,11 +40,7 @@ export function Button({
   return (
     <a
       href={href}
-      className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium transition-colors",
-        variants[variant],
-        className,
-      )}
+      className={buttonClassName(variant, className)}
       {...(external && !href.startsWith("mailto:")
         ? { target: "_blank", rel: "noopener noreferrer" }
         : undefined)}

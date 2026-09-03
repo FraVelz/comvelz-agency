@@ -66,6 +66,10 @@ export interface PlansSectionCopy {
   maintenanceLabel: string;
   maintenanceOptionalLabel: string;
   featuredBadge: string;
+  detailsCta: string;
+  detailsCloseLabel: string;
+  detailsIntro: string;
+  detailsProjectLabel: string;
 }
 
 export interface ProjectsFilledCopy {
@@ -223,6 +227,11 @@ export const site: SiteContent = {
     maintenanceLabel: "Mantenimiento mensual",
     maintenanceOptionalLabel: "Mantenimiento opcional",
     featuredBadge: "Recomendado",
+    detailsCta: "Ver detalles",
+    detailsCloseLabel: "Cerrar",
+    detailsIntro:
+      "Qué incluye el sitio y el mantenimiento mensual, en concreto.",
+    detailsProjectLabel: "Qué incluye el sitio",
   },
   plans: [
     {
