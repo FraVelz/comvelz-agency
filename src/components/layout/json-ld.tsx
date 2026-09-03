@@ -1,5 +1,6 @@
 import { site } from "@/content/site";
 import { getSiteUrl } from "@/lib/site-url";
+import { planProjectPrice } from "@/lib/format-usd";
 
 interface UnitPriceSpecification {
   "@type": "UnitPriceSpecification";
@@ -42,7 +43,7 @@ function buildOfferCatalog(): OfferCatalogJsonLd {
       {
         "@type": "Offer",
         name: plan.name,
-        price: plan.priceUsd,
+        price: planProjectPrice(plan),
         priceCurrency: "USD",
         description: plan.description,
       },

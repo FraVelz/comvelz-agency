@@ -47,6 +47,7 @@ export interface PlanItem {
   description: string;
   examples: string[];
   priceUsd: number;
+  offerPriceUsd?: number;
   maintenanceUsd: number;
   featured: boolean;
   advantages: string[];
@@ -70,6 +71,7 @@ export interface PlansSectionCopy {
   detailsCloseLabel: string;
   detailsIntro: string;
   detailsProjectLabel: string;
+  offerLabel: string;
 }
 
 export interface ProjectsFilledCopy {
@@ -220,7 +222,7 @@ export const site: SiteContent = {
     intro:
       "El sitio es un pago único. El mantenimiento es mensual y opcional: hosting, copias de seguridad, parches y cambios menores.",
     disclaimer:
-      "Precios desde, en USD. El alcance y el mantenimiento se confirman por correo.",
+      "Precios de proyecto en oferta actual, en USD. El alcance y el mantenimiento se confirman por correo.",
     examplesLabel: "Ideal para",
     advantagesLabel: "Ventajas",
     technicalLabel: "Incluye (técnico)",
@@ -232,6 +234,7 @@ export const site: SiteContent = {
     detailsIntro:
       "Qué incluye el sitio y el mantenimiento mensual, en concreto.",
     detailsProjectLabel: "Qué incluye el sitio",
+    offerLabel: "Oferta actual",
   },
   plans: [
     {
@@ -247,6 +250,7 @@ export const site: SiteContent = {
         "Freelancer o portafolio",
       ],
       priceUsd: 400,
+      offerPriceUsd: 150,
       maintenanceUsd: 29,
       featured: false,
       advantages: [
@@ -284,6 +288,7 @@ export const site: SiteContent = {
         "PYME de varios servicios",
       ],
       priceUsd: 1200,
+      offerPriceUsd: 500,
       maintenanceUsd: 59,
       featured: true,
       advantages: [
@@ -321,6 +326,7 @@ export const site: SiteContent = {
         "Marca que ya vende en redes y quiere checkout propio",
       ],
       priceUsd: 2500,
+      offerPriceUsd: 1490,
       maintenanceUsd: 99,
       featured: false,
       advantages: [
@@ -334,7 +340,7 @@ export const site: SiteContent = {
         "Pagos en línea",
         "Fichas de producto (fotos, precio, stock)",
         "Gestión de pedidos",
-        "Alcance cerrado en la propuesta (el $2,500 es un piso)",
+        "Alcance cerrado en la propuesta (el precio publicado es un piso)",
       ],
       maintenanceIncludes: [
         "Hosting y SSL",

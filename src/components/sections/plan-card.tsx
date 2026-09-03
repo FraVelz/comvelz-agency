@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { PlanBulletList } from "@/components/sections/plan-bullet-list";
 import { PlanDetailsDialog } from "@/components/sections/plan-details-dialog";
+import { PlanPrices } from "@/components/sections/plan-prices";
 import { cn } from "@/lib/cn";
-import { formatUsdFrom, formatUsdPerMonth } from "@/lib/format-usd";
 import { planMailto } from "@/lib/plan-mailto";
 
 interface PlanCardProps {
@@ -24,10 +24,7 @@ export function PlanCard({ plan }: PlanCardProps): React.ReactElement {
     >
       <PlanCardHeader plan={plan} />
       <PlanExamples examples={plan.examples} />
-      <PlanPrices
-        priceUsd={plan.priceUsd}
-        maintenanceUsd={plan.maintenanceUsd}
-      />
+      <PlanPrices plan={plan} />
       <PlanBulletList
         title={copy.advantagesLabel}
         items={plan.advantages}
@@ -74,28 +71,6 @@ function PlanExamples({
           </li>
         ))}
       </ul>
-    </div>
-  );
-}
-
-interface PlanPricesProps {
-  priceUsd: number;
-  maintenanceUsd: number;
-}
-
-function PlanPrices({
-  priceUsd,
-  maintenanceUsd,
-}: PlanPricesProps): React.ReactElement {
-  return (
-    <div>
-      <p className="text-charcoal text-3xl font-bold tracking-tight">
-        {formatUsdFrom(priceUsd)}
-      </p>
-      <p className="text-muted mt-1 text-sm">
-        {site.plansSection.maintenanceOptionalLabel}{" "}
-        {formatUsdPerMonth(maintenanceUsd)}
-      </p>
     </div>
   );
 }

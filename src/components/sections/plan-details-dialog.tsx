@@ -6,7 +6,8 @@ import { Code2, Wrench, X } from "lucide-react";
 import { site, type PlanItem } from "@/content/site";
 import { Button, buttonClassName } from "@/components/ui/button";
 import { PlanBulletList } from "@/components/sections/plan-bullet-list";
-import { formatUsdFrom, formatUsdPerMonth } from "@/lib/format-usd";
+import { PlanPrices } from "@/components/sections/plan-prices";
+import { formatUsdPerMonth } from "@/lib/format-usd";
 import { planMailto } from "@/lib/plan-mailto";
 
 interface PlanDetailsDialogProps {
@@ -132,12 +133,9 @@ function PlanDetailsBody({ plan }: { plan: PlanItem }): React.ReactElement {
   return (
     <>
       <p className="text-muted mt-3 text-sm leading-6">{copy.detailsIntro}</p>
-      <p className="text-charcoal mt-4 text-2xl font-bold tracking-tight">
-        {formatUsdFrom(plan.priceUsd)}
-      </p>
-      <p className="text-muted mt-1 text-sm">
-        {copy.maintenanceOptionalLabel} {formatUsdPerMonth(plan.maintenanceUsd)}
-      </p>
+      <div className="mt-4">
+        <PlanPrices plan={plan} />
+      </div>
       <PlanDetailsLists plan={plan} />
       <Button
         href={planMailto(site.email, plan)}

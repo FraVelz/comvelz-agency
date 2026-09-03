@@ -1,4 +1,6 @@
-function formatUsdAmount(amount: number): string {
+import type { PlanItem } from "@/content/site";
+
+export function formatUsdAmount(amount: number): string {
   const value = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -14,4 +16,8 @@ export function formatUsdFrom(amount: number): string {
 
 export function formatUsdPerMonth(amount: number): string {
   return `${formatUsdAmount(amount)}/mes`;
+}
+
+export function planProjectPrice(plan: PlanItem): number {
+  return plan.offerPriceUsd ?? plan.priceUsd;
 }

@@ -1,10 +1,19 @@
 import type { PlanItem } from "@/content/site";
-import { formatUsdFrom, formatUsdPerMonth } from "@/lib/format-usd";
+import {
+  formatUsdFrom,
+  formatUsdPerMonth,
+  planProjectPrice,
+} from "@/lib/format-usd";
 
 export function planMailto(email: string, plan: PlanItem): string {
   const subject = `Plan web: ${plan.name}`;
+  const current = formatUsdFrom(planProjectPrice(plan));
+  const priceLine =
+    plan.offerPriceUsd == null
+      ? `Hola, me interesa el plan ${plan.name} (${current}).`
+      : `Hola, me interesa el plan ${plan.name} (oferta ${current}).`;
   const body = [
-    `Hola, me interesa el plan ${plan.name} (${formatUsdFrom(plan.priceUsd)}).`,
+    priceLine,
     `El mantenimiento es opcional (${formatUsdPerMonth(plan.maintenanceUsd)}).`,
     "",
     "Gracias.",
